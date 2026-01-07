@@ -1,0 +1,7 @@
+{
+    "name": "Creative AI Portfolio",
+    "description": "A futuristic bento-style portfolio featuring an interactive AI companion powered by Gemini to answer questions about the developer.",
+    "requestFramePermissions": [
+    "microphone"
+    ]
+}
