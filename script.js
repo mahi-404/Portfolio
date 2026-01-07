@@ -20,12 +20,6 @@ const PORTFOLIO_DATA = {
             img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
         },
         {
-            title: "To-Do List",
-            desc: "Robust productivity tool with local storage and state management.",
-            tags: ["JavaScript", "CSS"],
-            img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&q=80&w=600"
-        },
-        {
             title: "SemEval Task 13",
             desc: "Detecting Machine-Generated Code with Multiple Progamming Languages & Scenarios.",
             tags: ["LLM", "Python", "ML"],
