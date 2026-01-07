@@ -19,6 +19,7 @@ const PORTFOLIO_DATA = {
             tags: ["HTML", "Tailwind", "JS"],
             img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
         },
+        
         {
             title: "SemEval Task 13",
             desc: "Detecting Machine-Generated Code with Multiple Progamming Languages & Scenarios.",
