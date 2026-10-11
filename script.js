@@ -1,30 +1,61 @@
 // Portfolio Content Data
 const PORTFOLIO_DATA = {
     name: "Mahitha",
-    role: "Aspiring Software Developer",
+    role: "Software Developer & CSE Student",
     skills: [
-        { name: "Python" },
-        { name: "Java" },
-        { name: "C Programming" },
-        { name: "DSA (Basics)" },
-        { name: "DBMS (Basics)" },
-        { name: "JavaScript" },
-        { name: "HTML & CSS" },
-        { name: "Git & GitHub" }
+        { name: "C++ (DSA & Systems)" },
+        { name: "Python (AI / ML)" },
+        { name: "React.js & Vite" },
+        { name: "Node.js & Express" },
+        { name: "FastAPI" },
+        { name: "JavaScript & TypeScript" },
+        { name: "MongoDB & MySQL" },
+        { name: "Tailwind CSS" },
+        { name: "Git & GitHub" },
+        { name: "Machine Learning / NLP" }
     ],
     projects: [
         {
-            title: "Portfolio Website",
-            desc: "Futuristic responsive bento-style portfolio with AI features.",
-            tags: ["HTML", "Tailwind", "JS"],
-            img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600"
+            title: "Evidence-Aware Fake News Verification",
+            desc: "Hybrid transformer framework with DeBERTa NLI cross-encoder, FAISS & BM25 retrieval for explainable claim verification.",
+            tags: ["Python", "NLP", "FastAPI", "FAISS"],
+            img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=600",
+            link: "https://github.com/mahi-404/Fake-News-Verification"
         },
-        
         {
-            title: "SemEval Task 13",
-            desc: "Detecting Machine-Generated Code with Multiple Progamming Languages & Scenarios.",
-            tags: ["LLM", "Python", "ML"],
-            img: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=600"
+            title: "File Compression Tool (Huffman Coding)",
+            desc: "Modular C++17 lossless compression tool using Huffman greedy tree algorithm, min-priority queues, and bit-level binary packing.",
+            tags: ["C++17", "DSA", "Algorithms", "Binary I/O"],
+            img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600",
+            link: "https://github.com/mahi-404/File_Compression-Tool"
+        },
+        {
+            title: "Expensio – Student Expense Tracker",
+            desc: "Full-stack MERN application for tracking solo expenses, managing group bill splits, settlements, and UPI payment simulation.",
+            tags: ["React", "Node.js", "MongoDB", "Tailwind"],
+            img: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=600",
+            link: "https://github.com/mahi-404/Expensio"
+        },
+        {
+            title: "AISpend Audit",
+            desc: "Startup-grade AI cost optimization platform engineered to audit, monitor, and reduce AI infrastructure and cloud spend.",
+            tags: ["TypeScript", "AI Cloud", "Optimization", "Audit"],
+            img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600",
+            link: "https://github.com/mahi-404/AISpend_Audit"
+        },
+        {
+            title: "Edumentor-AI",
+            desc: "Intelligent learning platform bridging students and mentors through AI-powered tutoring and real-time progress tracking.",
+            tags: ["Python", "AI Tutoring", "Full-Stack", "EdTech"],
+            img: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&q=80&w=600",
+            link: "https://github.com/mahi-404/Edumentor-AI"
+        },
+        {
+            title: "Electricity Load Forecasting",
+            desc: "Predictive machine learning models forecasting regional grid electrical demand using agricultural and weather indicators.",
+            tags: ["Machine Learning", "Python", "Data Science", "Pandas"],
+            img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=600",
+            link: "https://github.com/mahi-404/Electricity-load-forecasting"
         }
     ]
 };
@@ -45,21 +76,26 @@ function initPortfolio() {
     const projectsGrid = document.getElementById('projects');
     if (projectsGrid) {
         projectsGrid.innerHTML = PORTFOLIO_DATA.projects.map((proj, i) => `
-            <div class="bento-card overflow-hidden group flex flex-col reveal" style="transition-delay: ${i * 100}ms">
+            <a href="${proj.link || '#'}" target="_blank" rel="noopener noreferrer" class="bento-card overflow-hidden group flex flex-col reveal" style="transition-delay: ${i * 100}ms">
                 <div class="h-48 overflow-hidden relative">
                     <img src="${proj.img}" alt="${proj.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
                 </div>
                 <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                        <h3 class="text-lg font-bold mb-2 group-hover:text-cyan-400 transition-colors">${proj.title}</h3>
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-bold group-hover:text-cyan-400 transition-colors">${proj.title}</h3>
+                            <svg class="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </div>
                         <p class="text-slate-400 text-sm line-clamp-2">${proj.desc}</p>
                     </div>
                     <div class="mt-4 flex flex-wrap gap-2">
                         ${proj.tags.map(tag => `<span class="text-[10px] uppercase font-black tracking-widest bg-cyan-500/10 text-cyan-400 px-2.5 py-1 rounded-md">${tag}</span>`).join('')}
                     </div>
                 </div>
-            </div>
+            </a>
         `).join('');
     }
 
@@ -140,11 +176,11 @@ async function initAI() {
 // Initialize AI immediately (async)
 initAI();
 
-const SYSTEM_PROMPT = `You are Mahitha's digital assistant. Mahitha is a Computer Science student and Software Developer.
+const SYSTEM_PROMPT = `You are Mahitha's digital assistant. Mahitha is a Computer Science Engineering student at IIIT Dharwad and Software Developer.
 Her skills include: ${PORTFOLIO_DATA.skills.map(s => s.name).join(', ')}.
 Her projects include: ${PORTFOLIO_DATA.projects.map(p => p.title).join(', ')}.
 Be professional, encouraging, and helpful. Keep responses concise (under 3 sentences).
-If someone asks about hiring her, direct them to her contact form or email (yourmail@gmail.com).`;
+If someone asks about hiring or contacting her, direct them to her contact form or email (mahitha.kolla@gmail.com).`;
 
 const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
@@ -155,10 +191,10 @@ const closeChat = document.getElementById('close-chat');
 
 // Mock responses for demo mode
 const MOCK_RESPONSES = [
-    "I'm currently in Demo Mode. Mahitha is skilled in Python, JavaScript, and Web Technologies!",
-    "In the full version, I use Gemini to answer questions dynamically. For now: check out her projects section!",
-    "Mahitha is passionate about creating clean, user-friendly applications.",
-    "You can reach her at yourmail@gmail.com for opportunities."
+    "I'm currently in Demo Mode. Mahitha is skilled in C++, Python, React, Node.js, and Machine Learning!",
+    "In the full version, I use Gemini to answer questions dynamically. Check out her featured projects like Fake News Verification, Huffman Compression, and Expensio!",
+    "Mahitha is passionate about building scalable full-stack applications, efficient algorithms, and AI solutions.",
+    "You can reach her at mahitha.kolla@gmail.com for opportunities and collaborations!"
 ];
 
 if (toggleChat) {
